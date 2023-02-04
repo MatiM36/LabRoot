@@ -530,10 +530,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 264
   rotationAccel: 30
-  rotationMaxSpeed: 13
+  rotationMaxSpeed: 15
   assistAngle: 45
-  rotationReleaseJumpForce: 15
-  rotationReleaseSideForce: 10
+  rotationReleaseJumpForce: 16.5
+  rotationReleaseSideForce: 11.25
   input: {x: 0, y: 0}
   normalizedInput: {x: 0, y: 0}
   lastInput: {x: 1, y: 0}

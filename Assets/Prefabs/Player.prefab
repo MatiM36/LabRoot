@@ -505,7 +505,7 @@ MonoBehaviour:
   maxSpeed: 6
   accel: 80
   floorDrag: 0.03
-  airDrag: 0.02
+  airDrag: 0.01
   deadzoneValue: 0.1
   lastInputDuration: 0.2
   floorPoint: {fileID: 3823973106795024308}
@@ -530,8 +530,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 264
   rotationAccel: 30
-  rotationMaxSpeed: 17.5
+  rotationMaxSpeed: 13
   assistAngle: 45
+  rotationReleaseForce: 2.3
+  rotationReleaseInputForce: 2
   input: {x: 0, y: 0}
   normalizedInput: {x: 0, y: 0}
   lastInput: {x: 1, y: 0}

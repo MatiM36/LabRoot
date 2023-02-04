@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     public float rotationAccel = 80;
     public float rotationMaxSpeed = 6;
     public float assistAngle = 45;
+    public float rotationReleaseForce = 3f;
+    public float rotationReleaseInputForce = 3f;
 
     [Header("Readonly")]
     public Vector2 input;
@@ -102,10 +104,24 @@ public class PlayerController : MonoBehaviour
                 isHooked = false;
                 isUsingHair = false;
                 hairRecoveryTimer = attackCd;
+                hairWaitTimer = 0f;
+
+                rb2d.velocity *= rotationReleaseForce;
+
+                Vector2 releaseInput;
+                if (input.magnitude > deadzoneValue)
+                    releaseInput = normalizedInput;
+                else if (secondsFromLastInput < lastInputDuration)
+                    releaseInput = lastInput.normalized;
+                else
+                    releaseInput = new Vector2(facingRight ? 1f : -1f, 0f);
+
+                rb2d.velocity += releaseInput * rotationReleaseInputForce;
+
+                //Jump();
+
                 currentHook.Unhook();
                 currentHook = null;
-                hairWaitTimer = 0f;
-                Jump();
             }
             else
                 UpdateHairNodes(hairStartPos, currentHook.transform.position);
@@ -254,8 +270,9 @@ public class PlayerController : MonoBehaviour
 
         if (!isHooked)
         {
-            rb2d.velocity += new Vector2(input.x * Time.deltaTime * accel, 0f);
-            if (Mathf.Abs(rb2d.velocity.x) > maxSpeed) rb2d.velocity = new Vector2(maxSpeed * Mathf.Sign(rb2d.velocity.x), rb2d.velocity.y);
+            var potentialSpeedX = rb2d.velocity.x + input.x * Time.deltaTime * accel;
+            if (Mathf.Abs(potentialSpeedX) <= maxSpeed)
+                rb2d.velocity += new Vector2(input.x * Time.deltaTime * accel, 0f);
         }
         else
         {

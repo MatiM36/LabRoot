@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public interface IReseteable { public void ResetObject(); }
+
 public class LevelManager : MonoBehaviour
 {
     static public LevelManager Instance { get; private set; }
@@ -16,12 +18,24 @@ public class LevelManager : MonoBehaviour
 
     private Coroutine currentDeathRoutine = null;
 
+    public HashSet<IReseteable> reseteableObjects = new HashSet<IReseteable>();
+
     private void Awake()
     {
         if (Instance != null)
             Destroy(Instance);
 
         Instance = this;
+    }
+
+    public void RegisterLevelObject(IReseteable reseteable)
+    {
+        reseteableObjects.Add(reseteable);
+    }
+
+    public void UnregisterLevelObject(IReseteable reseteable)
+    {
+        reseteableObjects.Remove(reseteable);
     }
 
     public void RegisterPlayer(PlayerController playerController)
@@ -62,6 +76,8 @@ public class LevelManager : MonoBehaviour
         player.transform.position = startPoint.position;
         player.ShowPlayer(true);
 
+        ResetAllElements();
+
         while (t > 0f)
         {
             t -= Time.deltaTime / fadeDuration;
@@ -76,6 +92,12 @@ public class LevelManager : MonoBehaviour
         player.EnableControls(true);
 
         currentDeathRoutine = null;
+    }
+
+    private void ResetAllElements()
+    {
+        foreach (var r in reseteableObjects)
+            r.ResetObject();
     }
 
     public void UnregisterPlayer()

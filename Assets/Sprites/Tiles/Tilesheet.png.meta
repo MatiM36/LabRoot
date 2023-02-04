@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tilesheet_0
+      name: Outer_TopLeft
       rect:
         serializedVersion: 2
         x: 0
@@ -113,7 +113,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,7 +126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_1
+      name: Outer_Top
       rect:
         serializedVersion: 2
         x: 16
@@ -134,7 +134,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,7 +147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_2
+      name: Outer_TopRigh
       rect:
         serializedVersion: 2
         x: 32
@@ -155,7 +155,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,7 +168,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_3
+      name: Vertical_Top
       rect:
         serializedVersion: 2
         x: 64
@@ -176,7 +176,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,7 +189,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_4
+      name: Inner_TopLeft
       rect:
         serializedVersion: 2
         x: 96
@@ -197,7 +197,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,28 +210,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_5
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af41ee35124c02a40a5d9911c61df576
-      internalID: 1042040967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tilesheet_6
+      name: Inner_TopRight
       rect:
         serializedVersion: 2
         x: 128
@@ -239,7 +218,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,7 +231,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_7
+      name: Outer_Left
       rect:
         serializedVersion: 2
         x: 0
@@ -260,7 +239,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,7 +252,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_8
+      name: Outer_Center
       rect:
         serializedVersion: 2
         x: 16
@@ -281,7 +260,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,7 +273,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_9
+      name: Outer_Right
       rect:
         serializedVersion: 2
         x: 32
@@ -302,7 +281,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -315,7 +294,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_10
+      name: Vertical_Center
       rect:
         serializedVersion: 2
         x: 64
@@ -323,7 +302,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -336,28 +315,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09602a3af61f9574fa3dccff193264de
-      internalID: -143797507
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tilesheet_12
+      name: Platform_Single
       rect:
         serializedVersion: 2
         x: 112
@@ -365,7 +323,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -378,28 +336,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_13
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b91c969e7e794e441bcb0d91df386694
-      internalID: -548564056
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tilesheet_14
+      name: Outer_BottomLeft
       rect:
         serializedVersion: 2
         x: 0
@@ -407,7 +344,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -420,7 +357,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_15
+      name: Outer_Bottom
       rect:
         serializedVersion: 2
         x: 16
@@ -428,7 +365,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -441,7 +378,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_16
+      name: Outer_BottomRight
       rect:
         serializedVersion: 2
         x: 32
@@ -449,7 +386,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -462,7 +399,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_17
+      name: Vertical_Bottom
       rect:
         serializedVersion: 2
         x: 64
@@ -470,7 +407,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -483,7 +420,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_18
+      name: Inner_BottomLeft
       rect:
         serializedVersion: 2
         x: 96
@@ -491,7 +428,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -504,28 +441,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_19
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bbdd35da162386459d2b75b68e01b35
-      internalID: 632740997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tilesheet_20
+      name: Inner_BottomRight
       rect:
         serializedVersion: 2
         x: 128
@@ -533,7 +449,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -546,7 +462,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_21
+      name: Horizontal_Left
       rect:
         serializedVersion: 2
         x: 0
@@ -554,7 +470,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -567,7 +483,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_22
+      name: Horizontal_Center
       rect:
         serializedVersion: 2
         x: 16
@@ -575,7 +491,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -588,7 +504,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_23
+      name: Horizontal_Right
       rect:
         serializedVersion: 2
         x: 32
@@ -596,7 +512,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -609,7 +525,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_24
+      name: Single
       rect:
         serializedVersion: 2
         x: 64
@@ -617,7 +533,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -630,7 +546,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_25
+      name: Platform_Left
       rect:
         serializedVersion: 2
         x: 96
@@ -638,7 +554,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -651,7 +567,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_26
+      name: Platform_Center
       rect:
         serializedVersion: 2
         x: 112
@@ -659,7 +575,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -672,7 +588,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilesheet_27
+      name: Platform_Right
       rect:
         serializedVersion: 2
         x: 128
@@ -680,7 +596,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -703,34 +619,33 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tilesheet_10: 752213781
+      Horizontal_Center: -975733173
+      Outer_TopLeft: 1335105069
       Tilesheet_11: -143797507
-      Tilesheet_21: 1307580206
-      Tilesheet_23: 214794978
-      Tilesheet_1: -1516009328
-      Tilesheet_12: 393893835
-      Tilesheet_6: -883847463
-      Tilesheet_15: -780392183
-      Tilesheet_2: 105888378
-      Tilesheet_3: 245821526
+      Outer_BottomLeft: 1929977935
+      Platform_Right: -473022604
+      Inner_BottomRight: -1292711687
+      Vertical_Top: 245821526
+      Outer_Left: -918039251
+      Inner_BottomLeft: 1008746200
+      Vertical_Bottom: 2030831759
       Tilesheet_5: 1042040967
-      Tilesheet_26: -770567394
-      Tilesheet_14: 1929977935
-      Tilesheet_9: 457020940
-      Tilesheet_27: -473022604
-      Tilesheet_8: -696795923
+      Platform_Left: -223983267
+      Single: -2055302808
+      Outer_Bottom: -780392183
+      Outer_Top: -1516009328
+      Vertical_Center: 752213781
       Tilesheet_13: -548564056
-      Tilesheet_25: -223983267
-      Tilesheet_0: 1335105069
-      Tilesheet_4: 192751742
-      Tilesheet_16: 1840956845
-      Tilesheet_17: 2030831759
-      Tilesheet_24: -2055302808
-      Tilesheet_18: 1008746200
-      Tilesheet_7: -918039251
-      Tilesheet_20: -1292711687
-      Tilesheet_19: 632740997
-      Tilesheet_22: -975733173
+      Outer_Center: -696795923
+      Inner_TopLeft: 192751742
+      Outer_TopRigh: 105888378
+      Outer_BottomRight: 1840956845
+      Horizontal_Left: 1307580206
+      Platform_Single: 393893835
+      Outer_Right: 457020940
+      Platform_Center: -770567394
+      Horizontal_Right: 214794978
+      Inner_TopRight: -883847463
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

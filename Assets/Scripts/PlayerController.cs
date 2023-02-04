@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
                 {
                     isHooked = true;
                     currentHook = hook;
-                    currentAttackDistance = Mathf.Max(rotationMinDistance, (hook.transform.position - hairStartPos).magnitude);
+                    currentAttackDistance = Mathf.Clamp((hook.transform.position - hairStartPos).magnitude, rotationMinDistance, rotationMaxDistance);
                     hook.Hook(rb2d, currentAttackDistance);
                 }
                 else

@@ -49,7 +49,10 @@ public class PlayerController : MonoBehaviour
     public bool facingRight = true;
     public bool controlsEnabled = true;
 
-    private bool isOnFloor;
+    public bool isOnFloor { get; private set; }
+    public bool isHooked { get; private set; }
+    public HookPoint currentHook { get; private set; }
+
     private Collider2D[] overlapResult = new Collider2D[10];
     private RaycastHit2D[] raycastResult = new RaycastHit2D[1];
 
@@ -65,8 +68,6 @@ public class PlayerController : MonoBehaviour
 
     private float secondsFromLastInput;
 
-    private bool isHooked = false;
-    private HookPoint currentHook = null;
 
     private void Start()
     {

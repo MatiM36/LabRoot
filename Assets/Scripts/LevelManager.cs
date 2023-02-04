@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     static public LevelManager Instance { get; private set; }
 
     public Transform startPoint;
+    public CameraController cameraController;
     public Image fadeImage;
     public float fadeDuration = 0.5f;
     private PlayerController player;
@@ -28,6 +29,8 @@ public class LevelManager : MonoBehaviour
         player = playerController;
         player.hurtbox.OnDamageReceived += OnPlayerDeath;
         player.transform.position = startPoint.position;
+
+        cameraController.target = player;
     }
 
     private void OnPlayerDeath()

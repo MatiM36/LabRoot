@@ -501,11 +501,11 @@ MonoBehaviour:
   hair: {fileID: 1185778982}
   spriteRend: {fileID: 3823973107674222885}
   hurtbox: {fileID: 2093468036}
-  flipFacing: 1
+  flipFacing: 0
   maxSpeed: 6
   accel: 80
   floorDrag: 0.03
-  airDrag: 0.02
+  airDrag: 0.01
   deadzoneValue: 0.1
   lastInputDuration: 0.2
   floorPoint: {fileID: 3823973106795024308}
@@ -530,8 +530,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 264
   rotationAccel: 30
-  rotationMaxSpeed: 17.5
+  rotationMaxSpeed: 13
   assistAngle: 45
+  rotationReleaseJumpForce: 15
+  rotationReleaseSideForce: 10
   input: {x: 0, y: 0}
   normalizedInput: {x: 0, y: 0}
   lastInput: {x: 1, y: 0}

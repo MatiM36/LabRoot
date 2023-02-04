@@ -105,27 +105,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Outer_TopLeft
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6fed3827c6af8042ab728859eccd797
-      internalID: 1335105069
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Outer_Top
       rect:
         serializedVersion: 2
@@ -310,27 +289,6 @@ TextureImporter:
       bones: []
       spriteID: 96b75cb0978bcf04883563c61b3a11a0
       internalID: 752213781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platform_Single
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 450f8fd18c25a374899f25a4f7bd8a80
-      internalID: 393893835
       vertices: []
       indices: 
       edges: []
@@ -562,27 +520,6 @@ TextureImporter:
       bones: []
       spriteID: 3430f8b8d25b35c4bb4660bd87762ed7
       internalID: -223983267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platform_Center
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38976494e0b03e44ab27a435df77c0bf
-      internalID: -770567394
       vertices: []
       indices: 
       edges: []

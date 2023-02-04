@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [Header("Hair")]
     public Transform[] hairNodes;
     public float maxAttackDistance = 3f;
+    public float hairEndOffset = 0.3f;
     public float attackRadius = 0.5f;
     public float attackGrowSpeed = 2f;
     public float attackCd = 1f;
@@ -74,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateHair()
     {
-        bool pressedAttack = Input.GetButton("Fire2");
+        bool pressedAttack = Input.GetButton("Fire2") || Input.GetButton("Fire3");
 
 
         var hairStartPos = hairNodes[0].position;
@@ -174,7 +175,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateHairNodes(Vector3 startPos, Vector3 targetPos)
     {
-        hairNodes[hairNodes.Length - 1].position = targetPos;
+        hairNodes[hairNodes.Length - 1].position = targetPos + (targetPos - startPos).normalized * hairEndOffset;
         for (int i = 1; i < hairNodes.Length - 1; i++)
         {
             float t = i / (float)(hairNodes.Length - 1);

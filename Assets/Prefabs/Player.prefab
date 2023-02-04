@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1076982194}
   - component: {fileID: 1076982196}
-  - component: {fileID: 1076982197}
   - component: {fileID: 1076982198}
   m_Layer: 6
   m_Name: HairJoint_2
@@ -55,22 +54,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &1076982197
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076982193}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 8af4a231724952f4e9acb8cc7c60931d, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
 --- !u!232 &1076982198
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -88,7 +71,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 0
-  m_Distance: 0.25
+  m_Distance: 0.4
   m_MaxDistanceOnly: 0
 --- !u!1 &1182891837
 GameObject:
@@ -161,7 +144,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 0
-  m_Distance: 0.25
+  m_Distance: 0.4
   m_MaxDistanceOnly: 0
 --- !u!1 &1185778980
 GameObject:
@@ -188,7 +171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185778980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -215,7 +198,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 99489a0b98d6b7d4b9ed801c99246808, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -297,7 +280,7 @@ LineRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 3
-    numCapVertices: 3
+    numCapVertices: 0
     alignment: 1
     textureMode: 0
     shadowBias: 0.5
@@ -457,6 +440,7 @@ MonoBehaviour:
   floorDrag: 0.03
   airDrag: 0.02
   deadzoneValue: 0.1
+  lastInputDuration: 0.2
   floorPoint: {fileID: 3823973106795024308}
   floorLayer:
     serializedVersion: 2
@@ -469,7 +453,8 @@ MonoBehaviour:
   - {fileID: 2085728223}
   - {fileID: 1182891840}
   - {fileID: 1076982194}
-  attackDistance: 3
+  maxAttackDistance: 3
+  hairEndOffset: 0.3
   attackRadius: 0.25
   attackGrowSpeed: 60
   attackCd: 0.25

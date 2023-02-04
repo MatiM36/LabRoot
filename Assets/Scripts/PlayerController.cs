@@ -7,13 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Refs")]
     public Rigidbody2D rb2d;
+    public LineRenderer hair;
 
     [Header("Movement")]
     public float maxSpeed = 1f;
     public float accel = 0.5f;
     public float floorDrag = 0.01f;
     public float airDrag = 0.005f;
-    public float fakeGravity = 10f;
 
     [Header("Jump")]
     public Transform floorPoint;
@@ -21,6 +21,11 @@ public class PlayerController : MonoBehaviour
     public float floorPointRadius = 0.1f;
     public float jumpForce = 5f;
     public float jumpCd = 0.5f;
+    public float fakeGravity = 10f;
+
+    [Header("Hair")]
+    public FixedJoint2D rootJoint;
+    public SpringJoint2D[] nodeJoints;
 
     [Header("Readonly")]
     public Vector2 input;
@@ -36,6 +41,15 @@ public class PlayerController : MonoBehaviour
     {
         CheckFloor();
         HandleMovement();
+        UpdateHair();
+    }
+
+    private void UpdateHair()
+    {
+        hair.positionCount = 1 + nodeJoints.Length;
+        hair.SetPosition(0, rootJoint.transform.localPosition);
+        for (int i = 0; i < nodeJoints.Length; i++)
+            hair.SetPosition(i + 1, nodeJoints[i].transform.localPosition);
     }
 
     private void CheckFloor()

@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Hair
+    uniqueID: 196376451
+    locked: 0
+  - name: Character
+    uniqueID: 3368281015
+    locked: 0

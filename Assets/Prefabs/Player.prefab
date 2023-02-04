@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1076982194}
   - component: {fileID: 1076982196}
-  - component: {fileID: 1076982195}
   - component: {fileID: 1076982197}
+  - component: {fileID: 1076982198}
   m_Layer: 6
   m_Name: HairJoint_2
   m_TagString: Untagged
@@ -55,26 +55,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!231 &1076982195
-SpringJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076982193}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1182891838}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_AutoConfigureDistance: 0
-  m_Distance: 0.25
-  m_DampingRatio: 1
-  m_Frequency: 50
 --- !u!58 &1076982197
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -91,6 +71,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!232 &1076982198
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076982193}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 1182891838}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 0
+  m_Distance: 0.25
+  m_MaxDistanceOnly: 0
 --- !u!1 &1182891837
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1182891840}
   - component: {fileID: 1182891838}
-  - component: {fileID: 1182891839}
+  - component: {fileID: 1182891841}
   m_Layer: 0
   m_Name: HairJoint_1
   m_TagString: Untagged
@@ -145,8 +144,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!231 &1182891839
-SpringJoint2D:
+--- !u!232 &1182891841
+DistanceJoint2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -163,8 +162,7 @@ SpringJoint2D:
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 0
   m_Distance: 0.25
-  m_DampingRatio: 1
-  m_Frequency: 50
+  m_MaxDistanceOnly: 0
 --- !u!1 &1185778980
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,10 +451,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 3823973106149598881}
   hair: {fileID: 1185778982}
+  spriteRend: {fileID: 3823973107674222885}
   maxSpeed: 6
   accel: 80
   floorDrag: 0.03
   airDrag: 0.02
+  deadzoneValue: 0.1
   floorPoint: {fileID: 3823973106795024308}
   floorLayer:
     serializedVersion: 2
@@ -465,11 +465,21 @@ MonoBehaviour:
   jumpForce: 15
   jumpCd: 0.5
   fakeGravity: 40
-  rootJoint: {fileID: 2085728222}
-  nodeJoints:
-  - {fileID: 1182891839}
-  - {fileID: 1076982195}
+  hairNodes:
+  - {fileID: 2085728223}
+  - {fileID: 1182891840}
+  - {fileID: 1076982194}
+  attackDistance: 3
+  attackRadius: 0.5
+  attackGrowSpeed: 20
+  attackCd: 0.5
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 8
   input: {x: 0, y: 0}
+  normalizedInput: {x: 0, y: 0}
+  lastInput: {x: 1, y: 0}
+  facingRight: 1
 --- !u!1 &3823973106795024307
 GameObject:
   m_ObjectHideFlags: 0

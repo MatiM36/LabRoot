@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1076982194}
   - component: {fileID: 1076982196}
   - component: {fileID: 1076982195}
-  m_Layer: 0
-  m_Name: Head (2)
+  - component: {fileID: 1076982197}
+  m_Layer: 6
+  m_Name: HairJoint_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +74,23 @@ SpringJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.25
   m_DampingRatio: 1
-  m_Frequency: 5
+  m_Frequency: 50
+--- !u!58 &1076982197
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076982193}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 8af4a231724952f4e9acb8cc7c60931d, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!1 &1182891837
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,7 +103,7 @@ GameObject:
   - component: {fileID: 1182891838}
   - component: {fileID: 1182891839}
   m_Layer: 0
-  m_Name: Head (1)
+  m_Name: HairJoint_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +164,7 @@ SpringJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.25
   m_DampingRatio: 1
-  m_Frequency: 5
+  m_Frequency: 50
 --- !u!1 &1185778980
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +176,7 @@ GameObject:
   - component: {fileID: 1185778981}
   - component: {fileID: 1185778982}
   m_Layer: 0
-  m_Name: Hair
+  m_Name: Hair_Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +240,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: -0.026000023, y: 0.676, z: 0}
-  - {x: -0.025996208, y: 0.31555986, z: 0}
+  - {x: -0.02600002, y: 0.31555986, z: 0}
   - {x: -0.02599597, y: 0.010339975, z: 0}
   m_Parameters:
     serializedVersion: 3
@@ -281,9 +298,9 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
-    alignment: 0
+    numCornerVertices: 3
+    numCapVertices: 3
+    alignment: 1
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
@@ -301,7 +318,7 @@ GameObject:
   - component: {fileID: 2085728221}
   - component: {fileID: 2085728222}
   m_Layer: 0
-  m_Name: Head
+  m_Name: HeadJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,7 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3823973107300655512}
   - component: {fileID: 3823973107300655513}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PhysicCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

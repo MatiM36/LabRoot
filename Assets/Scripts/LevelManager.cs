@@ -30,7 +30,7 @@ public class LevelManager : MonoBehaviour
         player.hurtbox.OnDamageReceived += OnPlayerDeath;
         player.transform.position = startPoint.position;
 
-        cameraController.target = player;
+        cameraController.SetTarget(player);
     }
 
     private void OnPlayerDeath()

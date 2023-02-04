@@ -30,10 +30,12 @@ public class PlayerController : MonoBehaviour
 
     private float jumpTimer = 0f;
 
+    private bool hasReleasedJump = true;
+
     private void Update()
     {
         CheckFloor();
-        HandleInput();
+        HandleMovement();
     }
 
     private void CheckFloor()
@@ -41,10 +43,12 @@ public class PlayerController : MonoBehaviour
         isOnFloor = Physics2D.OverlapCircleNonAlloc(floorPoint.position, floorPointRadius,overlapResult, floorLayer) > 0;
     }
 
-    private void HandleInput()
+    private void HandleMovement()
     {
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        bool jumpPressed = input.y > 0.5f;
+        bool jumpPressed = (input.y > 0.5f || Input.GetButton("Fire1"));
+        if (!jumpPressed)
+            hasReleasedJump = true;
 
         rb2d.velocity += new Vector2(input.x * Time.deltaTime * accel, 0f);
         if (Mathf.Abs(rb2d.velocity.x) > maxSpeed) rb2d.velocity = new Vector2(maxSpeed * Mathf.Sign(rb2d.velocity.x), rb2d.velocity.y);
@@ -55,14 +59,17 @@ public class PlayerController : MonoBehaviour
 
         if (jumpTimer <= 0f)
         {
-            if (isOnFloor && jumpPressed)
+            if (isOnFloor && jumpPressed && hasReleasedJump)
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
                 jumpTimer = jumpCd;
+                hasReleasedJump = false;
             }
         }
         else
             jumpTimer -= Time.deltaTime;
+
+        
     }
 
     private void OnDrawGizmos()

@@ -532,8 +532,8 @@ MonoBehaviour:
   rotationAccel: 30
   rotationMaxSpeed: 13
   assistAngle: 45
-  rotationReleaseForce: 2.3
-  rotationReleaseInputForce: 2
+  rotationReleaseJumpForce: 15
+  rotationReleaseSideForce: 10
   input: {x: 0, y: 0}
   normalizedInput: {x: 0, y: 0}
   lastInput: {x: 1, y: 0}

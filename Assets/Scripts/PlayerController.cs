@@ -41,8 +41,10 @@ public class PlayerController : MonoBehaviour
     public float rotationAccel = 80;
     public float rotationMaxSpeed = 6;
     public float assistAngle = 45;
-    public float rotationReleaseForce = 3f;
-    public float rotationReleaseInputForce = 3f;
+    public float rotationReleaseJumpForce = 15;
+    public float rotationReleaseSideForce = 2f;
+    //public float rotationReleaseForce = 3f;
+    //public float rotationReleaseInputForce = 3f;
 
     [Header("Readonly")]
     public Vector2 input;
@@ -106,17 +108,27 @@ public class PlayerController : MonoBehaviour
                 hairRecoveryTimer = attackCd;
                 hairWaitTimer = 0f;
 
-                rb2d.velocity *= rotationReleaseForce;
+                //rb2d.velocity *= rotationReleaseForce;
 
-                Vector2 releaseInput;
+                //Vector2 releaseInput;
+                //if (input.magnitude > deadzoneValue)
+                //    releaseInput = normalizedInput;
+                //else if (secondsFromLastInput < lastInputDuration)
+                //    releaseInput = lastInput.normalized;
+                //else
+                //    releaseInput = new Vector2(facingRight ? 1f : -1f, 0f);
+
+                float releaseDir;
                 if (input.magnitude > deadzoneValue)
-                    releaseInput = normalizedInput;
+                    releaseDir = input.x > 0f ? 1f : -1f;
                 else if (secondsFromLastInput < lastInputDuration)
-                    releaseInput = lastInput.normalized;
+                    releaseDir = lastInput.x > 0f ? 1f : -1f;
                 else
-                    releaseInput = new Vector2(facingRight ? 1f : -1f, 0f);
+                    releaseDir = 0f;
 
-                rb2d.velocity += releaseInput * rotationReleaseInputForce;
+                //rb2d.velocity += releaseInput * rotationReleaseInputForce;
+
+                rb2d.velocity = new Vector2(releaseDir * rotationReleaseSideForce, rotationReleaseJumpForce);
 
                 //Jump();
 

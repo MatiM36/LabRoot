@@ -462,10 +462,10 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 264
-  rotationMinDistance: 1
+  rotationMinDistance: 2
   rotationMaxDistance: 2
-  rotationAccel: 40
-  rotationMaxSpeed: 20
+  rotationAccel: 30
+  rotationMaxSpeed: 17.5
   assistAngle: 45
   input: {x: 0, y: 0}
   normalizedInput: {x: 0, y: 0}

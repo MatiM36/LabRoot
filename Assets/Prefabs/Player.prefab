@@ -423,6 +423,7 @@ MonoBehaviour:
   damageLayer:
     serializedVersion: 2
     m_Bits: 512
+  showDebug: 0
 --- !u!1 &3823973106149598880
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +435,7 @@ GameObject:
   - component: {fileID: 3823973106149598882}
   - component: {fileID: 3823973106149598881}
   - component: {fileID: 3823973106149598883}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,10 +530,10 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 264
-  rotationAccel: 30
+  rotationAccel: 32
   rotationMaxSpeed: 15
   assistAngle: 45
-  rotationReleaseJumpForce: 16.5
+  rotationReleaseJumpForce: 17.25
   rotationReleaseSideForce: 11.25
   input: {x: 0, y: 0}
   normalizedInput: {x: 0, y: 0}

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb2d;
     public LineRenderer hair;
     public SpriteRenderer spriteRend;
+    public Hurtbox hurtbox;
 
     [Header("Movement")]
     public float maxSpeed = 1f;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 normalizedInput;
     public Vector2 lastInput = new Vector2(1f, 0f);
     public bool facingRight = true;
+    public bool controlsEnabled = true;
 
     private bool isOnFloor;
     private Collider2D[] overlapResult = new Collider2D[10];
@@ -66,6 +68,18 @@ public class PlayerController : MonoBehaviour
     private bool isHooked = false;
     private HookPoint currentHook = null;
 
+    private void Start()
+    {
+        hurtbox.OnDamageReceived += OnDamageReceived;
+        LevelManager.Instance.RegisterPlayer(this);
+    }
+
+    private void OnDestroy()
+    {
+        LevelManager.Instance.UnregisterPlayer();
+    }
+
+
     private void Update()
     {
         CheckFloor();
@@ -75,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateHair()
     {
-        bool pressedAttack = Input.GetButton("Fire2") || Input.GetButton("Fire3");
+        bool pressedAttack = controlsEnabled && Input.GetButton("Fire2") || Input.GetButton("Fire3");
 
 
         var hairStartPos = hairNodes[0].position;
@@ -216,7 +230,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * (controlsEnabled ? 1f : 0f);
         normalizedInput = input.normalized;
 
         if (input.magnitude > deadzoneValue)
@@ -233,7 +247,7 @@ public class PlayerController : MonoBehaviour
             spriteRend.flipX = !facingRight;
         }
 
-        bool jumpPressed = (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetButton("Fire1"));
+        bool jumpPressed = controlsEnabled && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetButton("Fire1"));
         if (!jumpPressed)
             hasReleasedJump = true;
 
@@ -274,6 +288,21 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+    }
+
+    private void OnDamageReceived()
+    {
+        
+    }
+
+    public void ShowPlayer(bool value)
+    {
+        gameObject.SetActive(value);
+    }
+
+    public void EnableControls(bool value)
+    {
+        controlsEnabled = value;
     }
 
     private void OnDrawGizmos()

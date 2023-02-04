@@ -39,4 +39,9 @@ public class CameraController : MonoBehaviour
             transform.position += new Vector3(0f, yDistance - (maxYDistance * Mathf.Sign(yDistance)), 0f);
         }
     }
+
+    public void ForcePosition()
+    {
+        transform.position = target.transform.position + yOffset * Vector3.up;
+    }
 }

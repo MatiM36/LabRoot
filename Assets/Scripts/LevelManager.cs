@@ -59,6 +59,8 @@ public class LevelManager : MonoBehaviour
         player.ShowPlayer(false);
         player.EnableControls(false);
 
+        yield return new WaitForSeconds(0.5f);
+
         float t = 0f;
         var color = fadeImage.color;
         fadeImage.enabled = true;
@@ -75,6 +77,7 @@ public class LevelManager : MonoBehaviour
 
         player.transform.position = startPoint.position;
         player.ShowPlayer(true);
+        cameraController.ForcePosition();
 
         ResetAllElements();
 

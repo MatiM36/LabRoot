@@ -481,7 +481,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 4
   m_Material: {fileID: 0}
-  m_Interpolate: 1
+  m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 3823973106149598883}
   animator: {fileID: 3823973106795942738}
-  deathParticles: {fileID: 0}
+  deathParticles: {fileID: 1452023339368158283, guid: 975283ea0b33fa4498849e6121023d7a, type: 3}
   idleAnimation: Idle
   runAnimation: Run
   jumpAnimation: Jump

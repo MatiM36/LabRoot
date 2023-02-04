@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float floorDrag = 0.01f;
     public float airDrag = 0.005f;
     public float deadzoneValue = 0.1f;
+    public float lastInputDuration = 0.2f;
 
     [Header("Jump")]
     public Transform floorPoint;
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Hair")]
     public Transform[] hairNodes;
-    public float attackDistance = 3f;
+    public float maxAttackDistance = 3f;
     public float attackRadius = 0.5f;
     public float attackGrowSpeed = 2f;
     public float attackCd = 1f;
@@ -59,6 +60,8 @@ public class PlayerController : MonoBehaviour
     private float hairRecoveryTimer;
     private float hairWaitTimer;
 
+    private float secondsFromLastInput;
+
     private bool isHooked = false;
     private HookPoint currentHook = null;
 
@@ -76,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
         var hairStartPos = hairNodes[0].position;
 
-        if (isHooked)
+        if (isHooked) //While hooked on point
         {
             if (!pressedAttack)
             {
@@ -89,109 +92,37 @@ public class PlayerController : MonoBehaviour
                 Jump();
             }
             else
-            {
-                var hairLastPos = hairNodes[hairNodes.Length - 1].position = currentHook.transform.position;
-                for (int i = 1; i < hairNodes.Length - 1; i++)
-                {
-                    float t = i / (float)(hairNodes.Length - 1);
-                    hairNodes[i].position = Vector2.Lerp(hairStartPos, hairLastPos, t);
-                }
-            }
+                UpdateHairNodes(hairStartPos, currentHook.transform.position);
         }
-        else if (hairWaitTimer > 0f)
+        else if (hairWaitTimer > 0f) //When waiting at the end of a unsuccesful attack
         {
             hairWaitTimer -= Time.deltaTime;
 
-            if (Physics2D.CircleCastNonAlloc(hairStartPos, attackRadius, currentAttackDir, raycastResult, currentAttackDistance, attackLayer) > 0)
-            {
-                var hook = raycastResult[0].transform.GetComponent<HookPoint>();
-                if (hook != null)
-                {
-                    isHooked = true;
-                    currentHook = hook;
-                    currentAttackDistance = Mathf.Clamp((hook.transform.position - hairStartPos).magnitude, rotationMinDistance, rotationMaxDistance);
-                    hook.Hook(rb2d, currentAttackDistance);
-                }
-                else
-                {
-                    currentAttackDistance = raycastResult[0].distance;
-                    isUsingHair = false;
-                    hairRecoveryTimer = attackCd;
-                }
-            }
-
-            var hairLastPos = hairNodes[hairNodes.Length - 1].position = (Vector2)hairStartPos + currentAttackDir * currentAttackDistance;
-            for (int i = 1; i < hairNodes.Length - 1; i++)
-            {
-                float t = i / (float)(hairNodes.Length - 1);
-                hairNodes[i].position = Vector2.Lerp(hairStartPos, hairLastPos, t);
-            }
+            //Try to hook
+            TryToHook(hairStartPos, currentAttackDir, waitIfFail: false, out bool hasCollision);
+            UpdateHairNodes(hairStartPos, (Vector2)hairStartPos + currentAttackDir * currentAttackDistance);
         }
         else if (hairRecoveryTimer <= 0f && pressedAttack)
         {
             if (!isUsingHair)
             {
                 isUsingHair = true;
-
-                if (input.magnitude > deadzoneValue)
-                    currentAttackDir = normalizedInput;
-                else
-                    currentAttackDir = lastInput;
-                var overlapCount = Physics2D.OverlapCircleNonAlloc(hairStartPos, attackDistance, overlapResult, attackLayer);
-                HookPoint closestHook = null;
-                float closestDist = float.PositiveInfinity;
-                for (int i = 0; i < overlapCount; i++)
-                {
-                    var hook = overlapResult[i].transform.GetComponent<HookPoint>();
-                    if (hook == null) continue;
-                    var hookDir = (overlapResult[i].transform.position - hairStartPos);
-                    float dist = hookDir.sqrMagnitude;
-                    if (dist < closestDist)
-                    {
-                        closestDist = dist;
-                        closestHook = hook;
-                    }
-                }
-                if(closestHook != null)
-                    currentAttackDir = (closestHook.transform.position - hairStartPos).normalized;
-                currentAttackDistance = 0.5f;
+                StartHairAttack(hairStartPos);
             }
 
-            currentAttackDistance += attackGrowSpeed * Time.deltaTime;
+            currentAttackDistance = Mathf.Clamp(currentAttackDistance + attackGrowSpeed * Time.deltaTime, 0f, maxAttackDistance);
 
+            TryToHook(hairStartPos, currentAttackDir, waitIfFail: true, out bool hasCollision);
 
-            if (currentAttackDistance > attackDistance)
+            if (!hasCollision && currentAttackDistance >= maxAttackDistance)
             {
-                currentAttackDistance = attackDistance;
+                currentAttackDistance = maxAttackDistance;
                 isUsingHair = false;
                 hairRecoveryTimer = attackCd;
                 hairWaitTimer = attackWaitTime;
             }
-            else if (Physics2D.CircleCastNonAlloc(hairStartPos, attackRadius, currentAttackDir, raycastResult, currentAttackDistance, attackLayer) > 0)
-            {
-                var hook = raycastResult[0].transform.GetComponent<HookPoint>();
-                if (hook != null)
-                {
-                    isHooked = true;
-                    currentHook = hook;
-                    currentAttackDistance = Mathf.Clamp((hook.transform.position - hairStartPos).magnitude, rotationMinDistance, rotationMaxDistance);
-                    hook.Hook(rb2d, currentAttackDistance);
-                }
-                else
-                {
-                    currentAttackDistance = raycastResult[0].distance;
-                    isUsingHair = false;
-                    hairRecoveryTimer = attackCd;
-                    hairWaitTimer = attackWaitTime;
-                }
-            }
 
-            var hairLastPos = hairNodes[hairNodes.Length - 1].position = (Vector2)hairStartPos + currentAttackDir * currentAttackDistance;
-            for (int i = 1; i < hairNodes.Length - 1; i++)
-            {
-                float t = i / (float)(hairNodes.Length - 1);
-                hairNodes[i].position = Vector2.Lerp(hairStartPos, hairLastPos, t);
-            }
+            UpdateHairNodes(hairStartPos, (Vector2)hairStartPos + currentAttackDir * currentAttackDistance);
         }
         else
         {
@@ -211,6 +142,72 @@ public class PlayerController : MonoBehaviour
             hair.SetPosition(i, hairNodes[i].localPosition);
     }
 
+    private void StartHairAttack(Vector3 startPos)
+    {
+        if (input.magnitude > deadzoneValue)
+            currentAttackDir = normalizedInput;
+        else if (secondsFromLastInput < lastInputDuration)
+            currentAttackDir = lastInput;
+        else
+            currentAttackDir = new Vector2(facingRight ? 1f : -1f, 0f);
+
+        var overlapCount = Physics2D.OverlapCircleNonAlloc(startPos, maxAttackDistance, overlapResult, attackLayer);
+        HookPoint closestHook = null;
+        float closestDist = float.PositiveInfinity;
+        for (int i = 0; i < overlapCount; i++)
+        {
+            var hook = overlapResult[i].transform.GetComponent<HookPoint>();
+            if (hook == null) continue;
+            var hookDir = (overlapResult[i].transform.position - startPos);
+            float angle = Vector2.Angle(hookDir, currentAttackDir);
+            float dist = hookDir.sqrMagnitude;
+            if (dist < closestDist && angle < assistAngle)
+            {
+                closestDist = dist;
+                closestHook = hook;
+            }
+        }
+        if (closestHook != null)
+            currentAttackDir = (closestHook.transform.position - startPos).normalized;
+        currentAttackDistance = 0.5f;
+    }
+
+    private void UpdateHairNodes(Vector3 startPos, Vector3 targetPos)
+    {
+        hairNodes[hairNodes.Length - 1].position = targetPos;
+        for (int i = 1; i < hairNodes.Length - 1; i++)
+        {
+            float t = i / (float)(hairNodes.Length - 1);
+            hairNodes[i].position = Vector2.Lerp(startPos, targetPos, t);
+        }
+    }
+
+    private void TryToHook(Vector3 startPos, Vector3 dir, bool waitIfFail, out bool hasCollision)
+    {
+        if (Physics2D.CircleCastNonAlloc(startPos, attackRadius, dir, raycastResult, currentAttackDistance, attackLayer) > 0)
+        {
+            var hook = raycastResult[0].transform.GetComponent<HookPoint>();
+            if (hook != null)
+            {
+                isHooked = true;
+                currentHook = hook;
+                currentAttackDistance = Mathf.Clamp((hook.transform.position - startPos).magnitude, rotationMinDistance, rotationMaxDistance);
+                hook.Hook(rb2d, currentAttackDistance);
+            }
+            else //If colliding with something that's not a hook, cancel attack
+            {
+                currentAttackDistance = raycastResult[0].distance;
+                isUsingHair = false;
+                hairRecoveryTimer = attackCd;
+                if(waitIfFail)
+                    hairWaitTimer = attackWaitTime;
+            }
+            hasCollision = true;
+        }
+        else
+            hasCollision = false;
+    }
+
     private void CheckFloor()
     {
         isOnFloor = Physics2D.OverlapCircleNonAlloc(floorPoint.position, floorPointRadius,overlapResult, floorLayer) > 0;
@@ -222,7 +219,12 @@ public class PlayerController : MonoBehaviour
         normalizedInput = input.normalized;
 
         if (input.magnitude > deadzoneValue)
+        {
             lastInput = input.normalized;
+            secondsFromLastInput = 0f;
+        }
+        else
+            secondsFromLastInput += Time.deltaTime;
 
         if (Mathf.Abs(input.x) >= deadzoneValue)
         {

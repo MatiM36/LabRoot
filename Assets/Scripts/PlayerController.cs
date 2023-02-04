@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer spriteRend;
     public Hurtbox hurtbox;
 
+    public bool flipFacing = false;
+
     [Header("Movement")]
     public float maxSpeed = 1f;
     public float accel = 0.5f;
@@ -36,8 +38,6 @@ public class PlayerController : MonoBehaviour
     public float attackCd = 1f;
     public float attackWaitTime = 0.5f;
     public LayerMask attackLayer;
-    public float rotationMinDistance = 1f;
-    public float rotationMaxDistance = 2f;
     public float rotationAccel = 80;
     public float rotationMaxSpeed = 6;
     public float assistAngle = 45;
@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
             {
                 isHooked = true;
                 currentHook = hook;
-                currentAttackDistance = Mathf.Clamp((hook.transform.position - startPos).magnitude, rotationMinDistance, rotationMaxDistance);
+                currentAttackDistance = Mathf.Clamp((hook.transform.position - startPos).magnitude, hook.minDistance, hook.maxDistance);
                 hook.Hook(rb2d, currentAttackDistance);
             }
             else //If colliding with something that's not a hook, cancel attack
@@ -244,7 +244,7 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Abs(input.x) >= deadzoneValue)
         {
-            facingRight = input.x >= 0f;
+            facingRight = !flipFacing ? input.x >= 0f : input.x <= 0f;
             spriteRend.flipX = !facingRight;
         }
 

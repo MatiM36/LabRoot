@@ -11,6 +11,7 @@ Shader "Unlit/HairShader"
         LOD 100
 
         ZWrite Off
+        Cull Off
 
         Pass
         {

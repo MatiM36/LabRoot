@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceJoint: {fileID: 4105321056547322770}
+  minDistance: 2
+  maxDistance: 2
 --- !u!50 &4105321056547322771
 Rigidbody2D:
   serializedVersion: 4
@@ -145,7 +147,7 @@ DistanceJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4105321056547322478}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}

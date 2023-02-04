@@ -110,10 +110,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 9
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4545455, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +129,12 @@ TextureImporter:
       name: Jump-Sheet_1
       rect:
         serializedVersion: 2
-        x: 9
+        x: 11
         y: 0
-        width: 9
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4545455, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: Jump-Sheet_2
       rect:
         serializedVersion: 2
-        x: 18
+        x: 22
         y: 0
-        width: 9
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4545455, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,12 +171,12 @@ TextureImporter:
       name: Jump-Sheet_3
       rect:
         serializedVersion: 2
-        x: 27
+        x: 33
         y: 0
-        width: 9
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4545455, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: Jump-Sheet_4
       rect:
         serializedVersion: 2
-        x: 36
+        x: 44
         y: 0
-        width: 9
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4545455, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,12 +213,12 @@ TextureImporter:
       name: Jump-Sheet_5
       rect:
         serializedVersion: 2
-        x: 45
+        x: 55
         y: 0
-        width: 9
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4545455, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,12 +234,12 @@ TextureImporter:
       name: Jump-Sheet_6
       rect:
         serializedVersion: 2
-        x: 54
+        x: 66
         y: 0
-        width: 9
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4545455, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -255,12 +255,12 @@ TextureImporter:
       name: Jump-Sheet_7
       rect:
         serializedVersion: 2
-        x: 63
+        x: 77
         y: 0
-        width: 9
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4545455, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -276,12 +276,12 @@ TextureImporter:
       name: Jump-Sheet_8
       rect:
         serializedVersion: 2
-        x: 72
+        x: 88
         y: 0
-        width: 9
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4545455, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

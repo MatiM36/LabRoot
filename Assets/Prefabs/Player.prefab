@@ -501,7 +501,7 @@ MonoBehaviour:
   hair: {fileID: 1185778982}
   spriteRend: {fileID: 3823973107674222885}
   hurtbox: {fileID: 2093468036}
-  flipFacing: 1
+  flipFacing: 0
   maxSpeed: 6
   accel: 80
   floorDrag: 0.03

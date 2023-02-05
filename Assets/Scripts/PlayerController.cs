@@ -287,7 +287,7 @@ public class PlayerController : MonoBehaviour
             spriteRend.flipX = !facingRight;
         }
 
-        bool jumpPressed = controlsEnabled && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetButton("Fire1"));
+        bool jumpPressed = controlsEnabled && (Input.GetButton("Fire1"));
         if (!jumpPressed)
             hasReleasedJump = true;
 

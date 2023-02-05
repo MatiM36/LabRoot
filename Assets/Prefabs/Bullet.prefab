@@ -189,7 +189,7 @@ MonoBehaviour:
   maxDuration: 15
   hurtbox: {fileID: 4532826548116582893}
   destroySound: {fileID: 0}
-  destroyParticles: {fileID: 0}
+  destroyParticles: {fileID: 5166142361773807358, guid: a63c31677b52b734c9df4096d4dc4f25, type: 3}
 --- !u!50 &6841531422384604892
 Rigidbody2D:
   serializedVersion: 4

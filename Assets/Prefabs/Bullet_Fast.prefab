@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: maxDuration
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 3339076261644985559, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
+      propertyPath: destroyParticles
+      value: 
+      objectReference: {fileID: 1759247942209237566, guid: 609313eb902329746af6fa78000f7c8a, type: 3}
     - target: {fileID: 8482485090684979663, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
       propertyPath: m_Name
       value: Bullet_Fast

@@ -2,6 +2,7 @@ using Mati36.Vinyl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,10 @@ public class LevelManager : MonoBehaviour
 
     public Transform startPoint;
     public CameraController cameraController;
+    public Canvas canvas;
+
+    public CollectablesUI specialCollectableCountPanel;
+    public CollectablesUI commonCollectableCountPanel;
 
     public Image fadeImage;
     public float fadeDuration = 0.5f;
@@ -27,6 +32,7 @@ public class LevelManager : MonoBehaviour
 
     public HashSet<CollectableItem> collectedItemsThisLife = new HashSet<CollectableItem>();
     public HashSet<CollectableItem> collectedAndSavedItems = new HashSet<CollectableItem>();
+    public HashSet<CollectableItem> allLevelCollectables = new HashSet<CollectableItem>();
 
     private void Awake()
     {
@@ -44,7 +50,9 @@ public class LevelManager : MonoBehaviour
 
         VinylManager.FadeOutAll(0.5f);
         levelMusic?.Play();
-        
+
+        canvas.worldCamera = cameraController.camera;
+
         yield return FadeInRoutine();
     }
 
@@ -80,10 +88,28 @@ public class LevelManager : MonoBehaviour
         foreach (var item in collectedItemsThisLife)
             collectedAndSavedItems.Add(item);
     }
+    public void RegisterCollectableItem(CollectableItem item)
+    {
+        allLevelCollectables.Add(item);
+    }
     public void OnCollectItem(CollectableItem item)
     {
         collectedItemsThisLife.Add(item);
+        if (item.type == CollectableItem.CollectableType.Special)
+            UpdateSpecialCollectablesPanel();
+        else if (item.type == CollectableItem.CollectableType.Common)
+            UpdateCommonCollectablesPanel();
     }
+
+    private void UpdateSpecialCollectablesPanel()
+    {
+        specialCollectableCountPanel.OnCollectiblePick(collectedItemsThisLife.Count(c => c.type == CollectableItem.CollectableType.Special), allLevelCollectables.Count(c => c.type == CollectableItem.CollectableType.Special));
+    }
+    private void UpdateCommonCollectablesPanel()
+    {
+        commonCollectableCountPanel.OnCollectiblePick(collectedItemsThisLife.Count(c => c.type == CollectableItem.CollectableType.Common), allLevelCollectables.Count(c => c.type == CollectableItem.CollectableType.Common));
+    }
+
     private void OnPlayerDeath()
     {
         if (currentDeathRoutine != null) return;
@@ -153,7 +179,13 @@ public class LevelManager : MonoBehaviour
 
         collectedItemsThisLife.Clear();
         foreach (var collectedItem in collectedAndSavedItems)
+        {
             collectedItem.gameObject.SetActive(false);
+            collectedItemsThisLife.Add(collectedItem);
+        }
+
+        UpdateCommonCollectablesPanel();
+        UpdateSpecialCollectablesPanel();
     }
 
     public void UnregisterPlayer()

@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8935fd23ae6164849a1634ed4c9f43e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 7010191331364615935}
   targetPos: {x: 0, y: 0}
   distance: -10
   smoothTime: 1

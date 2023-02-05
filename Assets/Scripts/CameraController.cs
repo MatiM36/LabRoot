@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     private PlayerController target;
+    public Camera camera;
     public Vector2 targetPos;
     public float distance = -10f;
     public float smoothTime = 0.5f;

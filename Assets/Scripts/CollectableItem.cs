@@ -6,9 +6,12 @@ using UnityEngine;
 
 public class CollectableItem : MonoBehaviour, IReseteable
 {
+    public enum CollectableType { Special, Common }
+
     public Hurtbox hurtbox;
     public ParticleSystem pickParticle;
     public VinylAsset pickSound;
+    public CollectableType type;
 
     private void Awake()
     {
@@ -18,6 +21,7 @@ public class CollectableItem : MonoBehaviour, IReseteable
     private void Start()
     {
         LevelManager.Instance.RegisterLevelObject(this);
+        LevelManager.Instance.RegisterCollectableItem(this);
     }
 
     private void OnDestroy()

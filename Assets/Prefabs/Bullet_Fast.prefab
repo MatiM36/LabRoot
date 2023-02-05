@@ -63,5 +63,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet_Fast
       objectReference: {fileID: 0}
+    - target: {fileID: 9022533885478889242, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
+      propertyPath: m_Color.b
+      value: 0.2117647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022533885478889242, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29991361
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022533885478889242, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}

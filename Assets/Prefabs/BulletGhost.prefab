@@ -63,5 +63,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletGhost
       objectReference: {fileID: 0}
+    - target: {fileID: 9022533885478889242, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
+      propertyPath: m_Color.a
+      value: 0.56078434
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022533885478889242, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022533885478889242, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022533885478889242, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}

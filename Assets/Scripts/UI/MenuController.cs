@@ -66,11 +66,20 @@ public class MenuController : MonoBehaviour
                 btn.button.interactable = false;
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire2"))
+            ShowMainScreen();
+    }
+
     private void ShowCredits()
     {
         mainContainer.SetActive(false);
         levelsContainer.SetActive(false);
         creditsContainer.SetActive(true);
+
+        creditsBackButton.Select();
     }
 
     private void ShowMainScreen()
@@ -78,6 +87,7 @@ public class MenuController : MonoBehaviour
         mainContainer.SetActive(true);
         levelsContainer.SetActive(false);
         creditsContainer.SetActive(false);
+        playButton.Select();
     }
 
     private void ShowLevelSelection()
@@ -85,5 +95,6 @@ public class MenuController : MonoBehaviour
         mainContainer.SetActive(false);
         levelsContainer.SetActive(true);
         creditsContainer.SetActive(false);
+        levelButtons[0].button.Select();
     }
 }

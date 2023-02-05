@@ -14,6 +14,7 @@ public class CollectablesUI : MonoBehaviour
     public float showTime = 2f;
 
     private bool showing = false;
+    private bool forceShowing = false;
     private float showTimer;
 
     private void Start()
@@ -34,8 +35,22 @@ public class CollectablesUI : MonoBehaviour
         showTimer = showTime;
     }
 
+    public void ForceShow(bool show)
+    {
+        forceShowing = show;
+        if (show)
+            animator.Play(showAnimation);
+        else
+        {
+            if (!showing)
+                animator.Play(hideAnimation);
+        }
+    }
+
     private void Update()
     {
+        if (forceShowing) return;
+
         if (showing)
         {
             if (showTimer > 0f)

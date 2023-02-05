@@ -17,6 +17,11 @@ public class LevelManager : MonoBehaviour
     public CameraController cameraController;
     public Canvas canvas;
 
+    [Header("Pause")]
+    public GameObject pausePanel;
+    public Button resumeButton;
+    public Button exitButton;
+
     public CollectablesUI specialCollectableCountPanel;
     public CollectablesUI commonCollectableCountPanel;
 
@@ -34,12 +39,17 @@ public class LevelManager : MonoBehaviour
     public HashSet<CollectableItem> collectedAndSavedItems = new HashSet<CollectableItem>();
     public HashSet<CollectableItem> allLevelCollectables = new HashSet<CollectableItem>();
 
+    private bool isPaused;
+
     private void Awake()
     {
         if (Instance != null)
             Destroy(Instance);
 
         Instance = this;
+
+        resumeButton.onClick.AddListener(TogglePause);
+        exitButton.onClick.AddListener(() => { SceneManager.LoadScene("MainMenu"); });
     }
 
     private IEnumerator Start()
@@ -58,8 +68,22 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        if (currentDeathRoutine != null || currentLevelRoutine != null) return;
+
         if (Input.GetButtonDown("Exit"))
-            SceneManager.LoadScene("MainMenu");
+            TogglePause();
+        if (Input.GetButtonDown("Reset"))
+            OnPlayerDeath();
+    }
+
+    private void TogglePause()
+    {
+        isPaused = !isPaused;
+        pausePanel.SetActive(isPaused);
+        Time.timeScale = isPaused ? 0f : 1f;
+        commonCollectableCountPanel.ForceShow(isPaused);
+        specialCollectableCountPanel.ForceShow(isPaused);
+        player.EnableControls(!isPaused);
     }
 
     public void RegisterLevelObject(IReseteable reseteable)

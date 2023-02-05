@@ -1,3 +1,4 @@
+using Mati36.Vinyl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,8 +14,10 @@ public class LevelManager : MonoBehaviour
 
     public Transform startPoint;
     public CameraController cameraController;
+
     public Image fadeImage;
     public float fadeDuration = 0.5f;
+    public VinylAsset levelMusic;
     private PlayerController player;
 
     private Coroutine currentDeathRoutine = null;
@@ -32,6 +35,8 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator Start()
     {
+        VinylManager.StopAll();
+        levelMusic.Play();
         yield return FadeInRoutine();
     }
 

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee381ecb42b31b4ab6e92211b086bfe, type: 3}
+  m_Name: VinylConfig
+  m_EditorClassIdentifier: 
+  poolDefaultSize: 20
+  autoStopOnSceneChange: 1
+  autocreateVinylAssets: 0
+  baseCategories:
+  - {fileID: 11400000, guid: fb265d2354348bc44a78f4a3ea51ae88, type: 2}
+  - {fileID: 11400000, guid: 2020db578b7d0484cb382842c89a1fd3, type: 2}
+  - {fileID: 11400000, guid: a6b7c6ea508005348a22a11dead8b02d, type: 2}
+  processedClips:
+  - {fileID: 8300000, guid: c1ee0b54fa2de4746858b9b6c63f9b2c, type: 3}
+  - {fileID: 8300000, guid: 35a2533bd594cca49b3f9bf515f4286b, type: 3}
+  - {fileID: 8300000, guid: 5fb3a8616a0b6e24ebc6e5684b3bbfc7, type: 3}
+  - {fileID: 8300000, guid: 8157c15a44eca5e49a28c671a77ae461, type: 3}
+  - {fileID: 8300000, guid: 871eb8ba4e9993643bbad3b1f3a6880f, type: 3}
+  - {fileID: 8300000, guid: a593f11e50704f548a1998772261969d, type: 3}
+  - {fileID: 8300000, guid: d1e3f1345c2c08b43a22c8c0e4d2999b, type: 3}
+  - {fileID: 8300000, guid: d713ef956d34d104e972b546b95dc176, type: 3}
+  - {fileID: 8300000, guid: e50b4173afb7342478b5da88b3a82616, type: 3}
+  - {fileID: 8300000, guid: 13316ad1858f8a646aa0a7b5a7fd5bbd, type: 3}
+  - {fileID: 8300000, guid: 5224a45687f63f344846f7b85302c8e5, type: 3}
+  - {fileID: 8300000, guid: c26cb54128bffeb4997f725e6581b37c, type: 3}

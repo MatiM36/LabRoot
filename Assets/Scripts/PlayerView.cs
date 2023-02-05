@@ -1,3 +1,4 @@
+using Mati36.Vinyl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,15 +17,33 @@ public class PlayerView : MonoBehaviour
     public string fallAnimation = "Fall";
     public string hookAnimation = "Hook";
 
+    public VinylAsset deathSound;
+    public VinylAsset attackSound;
+    public VinylAsset jumpSound;
+
     private void Awake()
     {
         player.hurtbox.OnDamageReceived += OnDeath;
+        player.OnPlayerJump += OnJump;
+        player.OnPlayerAttack += OnAttack;
+    }
+
+    private void OnAttack()
+    {
+        attackSound?.PlayAt(player.transform.position);
+    }
+
+    private void OnJump()
+    {
+        jumpSound?.PlayAt(player.transform.position);
     }
 
     private void OnDeath()
     {
         if (deathParticles != null)
             Instantiate(deathParticles, player.transform.position, Quaternion.identity, null);
+
+        deathSound?.PlayAt(player.transform.position);
     }
 
     private void Update()

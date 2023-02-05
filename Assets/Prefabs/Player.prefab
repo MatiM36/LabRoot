@@ -423,7 +423,6 @@ MonoBehaviour:
   damageLayer:
     serializedVersion: 2
     m_Bits: 512
-  showDebug: 0
 --- !u!1 &3823973106149598880
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,3 +754,6 @@ MonoBehaviour:
   jumpAnimation: Jump
   fallAnimation: Fall
   hookAnimation: Hook
+  deathSound: {fileID: 11400000, guid: 9ad564e9b68af544e96e090c605cfffe, type: 2}
+  attackSound: {fileID: 11400000, guid: 3ef2fd44c25ec6a43b3e61c25b74ad9a, type: 2}
+  jumpSound: {fileID: 11400000, guid: 320b2d60889140845bb9aa7b033c9125, type: 2}

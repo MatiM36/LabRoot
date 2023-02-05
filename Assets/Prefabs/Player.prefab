@@ -505,7 +505,7 @@ MonoBehaviour:
   maxSpeed: 6
   accel: 80
   floorDrag: 7.5
-  airDrag: 2.5
+  airDrag: 2.9
   deadzoneValue: 0.1
   lastInputDuration: 0.2
   floorPoint: {fileID: 3823973106795024308}

@@ -56,6 +56,11 @@ public class MenuController : MonoBehaviour
         }
         levelButtonTemplate.gameObject.SetActive(false);
 
+        
+    }
+
+    private void RefreshLevelBtns()
+    {
         for (int i = 0; i < levelButtons.Count; i++)
         {
             var btn = levelButtons[i];
@@ -71,6 +76,15 @@ public class MenuController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2"))
             ShowMainScreen();
+        if (Input.GetKeyDown(KeyCode.F5))
+            UnlockAllLevels();
+    }
+
+    private void UnlockAllLevels()
+    {
+        for (int i = 0; i < levelList.Length; i++)
+            PlayerPrefs.SetInt(levelList[i].sceneName + UNLOCKED_SUFIX, 1);
+        RefreshLevelBtns();
     }
 
     private void ShowCredits()

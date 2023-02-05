@@ -134,6 +134,12 @@ MonoBehaviour:
     levelName: 01
   - sceneName: Level-02
     levelName: 02
+  - sceneName: Level-03
+    levelName: 03
+  - sceneName: Level-04
+    levelName: 04
+  - sceneName: Level-FF
+    levelName: "\u2665"
   unlockAllLevels: 0
 --- !u!1 &6267918860548655249
 GameObject:

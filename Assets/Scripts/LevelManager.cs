@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
         Instance = this;
 
         resumeButton.onClick.AddListener(TogglePause);
-        exitButton.onClick.AddListener(() => { SceneManager.LoadScene("MainMenu"); });
+        exitButton.onClick.AddListener(() => { Time.timeScale = 1f; SceneManager.LoadScene("MainMenu"); });
     }
 
     private IEnumerator Start()

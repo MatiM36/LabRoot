@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 306bf3da946251147b00e146fc60e25d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -437,10 +437,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5825162696416094334, guid: dfc89cd95dd396a49bc891db3b0b70ec, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825162696416094334, guid: dfc89cd95dd396a49bc891db3b0b70ec, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -457,10 +453,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8146080105594040679, guid: dfc89cd95dd396a49bc891db3b0b70ec, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8146080105594040679, guid: dfc89cd95dd396a49bc891db3b0b70ec, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -474,10 +466,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8833075116009734861, guid: dfc89cd95dd396a49bc891db3b0b70ec, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8833075116009734861, guid: dfc89cd95dd396a49bc891db3b0b70ec, type: 3}
-      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8833075116009734861, guid: dfc89cd95dd396a49bc891db3b0b70ec, type: 3}

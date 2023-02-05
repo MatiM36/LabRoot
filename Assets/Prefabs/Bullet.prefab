@@ -165,7 +165,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 6841531422384604892}
   speed: 3
+  maxDuration: 15
   hurtbox: {fileID: 4532826548116582893}
+  destroySound: {fileID: 0}
+  destroyParticles: {fileID: 0}
 --- !u!50 &6841531422384604892
 Rigidbody2D:
   serializedVersion: 4

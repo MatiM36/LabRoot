@@ -132,9 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3339076261644985559, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
   shootPoint: {fileID: 8796505883776121197}
-  waveCd: 3
+  shootSound: {fileID: 0}
+  waveCd: 2
   bulletCd: 0.5
-  bulletsPerWave: 2
+  bulletsPerWave: 1
 --- !u!1 &8796505884291617632
 GameObject:
   m_ObjectHideFlags: 0

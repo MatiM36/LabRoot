@@ -44,7 +44,7 @@ public class MenuController : MonoBehaviour
         creditsBackButton.onClick.AddListener(ShowMainScreen);
 
         exitButton.onClick.AddListener(() => Application.Quit());
-        clearProgressButton.onClick.AddListener(() => { PlayerPrefs.DeleteAll(); PlayerPrefs.Save(); });
+        clearProgressButton.onClick.AddListener(() => { PlayerPrefs.DeleteAll(); PlayerPrefs.Save(); RefreshLevelBtns(); });
 
         for (int i = 0; i < levelList.Length; i++)
         {
@@ -56,7 +56,7 @@ public class MenuController : MonoBehaviour
         }
         levelButtonTemplate.gameObject.SetActive(false);
 
-        
+        RefreshLevelBtns();
     }
 
     private void RefreshLevelBtns()
@@ -84,6 +84,8 @@ public class MenuController : MonoBehaviour
     {
         for (int i = 0; i < levelList.Length; i++)
             PlayerPrefs.SetInt(levelList[i].sceneName + UNLOCKED_SUFIX, 1);
+        PlayerPrefs.Save();
+
         RefreshLevelBtns();
     }
 

@@ -22,6 +22,11 @@ public class CollectablesUI : MonoBehaviour
         animator.Play(hideAnimation, 0, 1f);
     }
 
+    public void UpdateMax(int max)
+    {
+        countText.text = $"{0}/{max}";
+    }
+
     public void OnCollectiblePick(int current, int max)
     {
         countText.text = $"{current}/{max}";

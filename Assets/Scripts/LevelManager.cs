@@ -41,6 +41,8 @@ public class LevelManager : MonoBehaviour
 
     private bool isPaused;
 
+    private int maxCommonCollectables = 0, maxSpecialCollectables = 0;
+
     private void Awake()
     {
         if (Instance != null)
@@ -56,7 +58,10 @@ public class LevelManager : MonoBehaviour
     {
         string unlockKey = SceneManager.GetActiveScene().name + MenuController.UNLOCKED_SUFIX;
         if (!PlayerPrefs.HasKey(unlockKey))
+        {
             PlayerPrefs.SetInt(unlockKey, 1);
+            PlayerPrefs.Save();
+        }
 
         VinylManager.FadeOutAll(0.5f);
         levelMusic?.Play();
@@ -115,6 +120,17 @@ public class LevelManager : MonoBehaviour
     public void RegisterCollectableItem(CollectableItem item)
     {
         allLevelCollectables.Add(item);
+        if (item.type == CollectableItem.CollectableType.Common)
+        {
+            maxCommonCollectables++;
+            commonCollectableCountPanel.UpdateMax(maxCommonCollectables);
+        }
+        else if (item.type == CollectableItem.CollectableType.Special)
+        {
+            maxSpecialCollectables++;
+            specialCollectableCountPanel.UpdateMax(maxSpecialCollectables);
+        }
+
     }
     public void OnCollectItem(CollectableItem item)
     {
@@ -127,11 +143,11 @@ public class LevelManager : MonoBehaviour
 
     private void UpdateSpecialCollectablesPanel()
     {
-        specialCollectableCountPanel.OnCollectiblePick(collectedItemsThisLife.Count(c => c.type == CollectableItem.CollectableType.Special), allLevelCollectables.Count(c => c.type == CollectableItem.CollectableType.Special));
+        specialCollectableCountPanel.OnCollectiblePick(collectedItemsThisLife.Count(c => c.type == CollectableItem.CollectableType.Special), maxSpecialCollectables);
     }
     private void UpdateCommonCollectablesPanel()
     {
-        commonCollectableCountPanel.OnCollectiblePick(collectedItemsThisLife.Count(c => c.type == CollectableItem.CollectableType.Common), allLevelCollectables.Count(c => c.type == CollectableItem.CollectableType.Common));
+        commonCollectableCountPanel.OnCollectiblePick(collectedItemsThisLife.Count(c => c.type == CollectableItem.CollectableType.Common), maxCommonCollectables);
     }
 
     private void OnPlayerDeath()
@@ -152,6 +168,7 @@ public class LevelManager : MonoBehaviour
 
         player.transform.position = startPoint.position;
         player.ShowPlayer(true);
+        player.rb2d.velocity = Vector2.zero;
         cameraController.ForcePosition();
 
         ResetAllElements();

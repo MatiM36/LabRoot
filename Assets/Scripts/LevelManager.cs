@@ -38,10 +38,20 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator Start()
     {
+        string unlockKey = SceneManager.GetActiveScene().name + MenuController.UNLOCKED_SUFIX;
+        if (!PlayerPrefs.HasKey(unlockKey))
+            PlayerPrefs.SetInt(unlockKey, 1);
+
         VinylManager.FadeOutAll(0.5f);
         levelMusic?.Play();
         
         yield return FadeInRoutine();
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Exit"))
+            SceneManager.LoadScene("MainMenu");
     }
 
     public void RegisterLevelObject(IReseteable reseteable)

@@ -158,7 +158,7 @@ MonoBehaviour:
   hurtbox: {fileID: 41226731650782196}
   timeBeforeBreak: 1
   timeToRegenerate: 3
-  breakParticles: {fileID: 0}
+  breakParticles: {fileID: 6671547380876161968, guid: 132b1fc4acf70ac4ba2fda9bc39ffd73, type: 3}
   breaking: 0
   regenerating: 0
   breakTimer: 0

@@ -1,3 +1,4 @@
+using Mati36.Vinyl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class Shooter : MonoBehaviour, IReseteable
 {
     public Bullet bulletPrefab;
     public Transform shootPoint;
+
+    public VinylAsset shootSound;
 
     public float waveCd = 3f;
     public float bulletCd = 0.5f;

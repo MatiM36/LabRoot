@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtbox: {fileID: 2046852605382024821}
-  pickParticle: {fileID: 0}
+  pickParticle: {fileID: 7285589773845004330, guid: bb0aeb913818b4241b63cef71c975d82, type: 3}
   pickSound: {fileID: 11400000, guid: 53fbec90b2be31c4fa4825386e62cf80, type: 2}
   type: 1
 --- !u!1 &27300077354556875

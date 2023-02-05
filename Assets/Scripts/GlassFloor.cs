@@ -70,6 +70,8 @@ public class GlassFloor : MonoBehaviour, IReseteable
 
     private void OnPlayerStep()
     {
+        if (breaking) return;
+
         breakTimer = timeBeforeBreak;
         breaking = true;
         regenerating = false;

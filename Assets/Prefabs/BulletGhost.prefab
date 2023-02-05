@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: maxDuration
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 3339076261644985559, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
+      propertyPath: destroyParticles
+      value: 
+      objectReference: {fileID: 7651737478560373883, guid: 1aac3b17b6549f340b6159d4fb7956e6, type: 3}
     - target: {fileID: 4532826548116582893, guid: c0378ea2e1c74754aacb31f6764a4d65, type: 3}
       propertyPath: damageLayer.m_Bits
       value: 0

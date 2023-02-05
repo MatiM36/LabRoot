@@ -28,7 +28,7 @@ public class CollectableItem : MonoBehaviour, IReseteable
         gameObject.SetActive(true);
     }
 
-    private void OnPlayerCollected()
+    public void OnPlayerCollected()
     {
         if(pickParticle != null)
             Instantiate(pickParticle, transform.position, Quaternion.identity, null);

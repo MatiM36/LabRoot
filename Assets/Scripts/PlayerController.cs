@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public float attackCd = 1f;
     public float attackWaitTime = 0.5f;
     public LayerMask attackLayer;
+    public LayerMask collectibleLayer;
     public float rotationAccel = 80;
     public float rotationMaxSpeed = 6;
     public float assistAngle = 45;
@@ -231,6 +232,13 @@ public class PlayerController : MonoBehaviour
 
     private void TryToHook(Vector3 startPos, Vector3 dir, bool waitIfFail, out bool hasCollision)
     {
+        if(Physics2D.CircleCastNonAlloc(startPos, attackRadius, dir, raycastResult, currentAttackDistance, collectibleLayer) > 0)
+        {
+            var collectible = raycastResult[0].transform.GetComponentInParent<CollectableItem>();
+            if (collectible != null)
+                collectible.OnPlayerCollected();
+        }
+
         if (Physics2D.CircleCastNonAlloc(startPos, attackRadius, dir, raycastResult, currentAttackDistance, attackLayer) > 0)
         {
             var hook = raycastResult[0].transform.GetComponent<HookPoint>();

@@ -305,8 +305,10 @@ public class PlayerController : MonoBehaviour
             rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, rotationMaxSpeed);
         }
 
-        if(!isHooked)
-            rb2d.velocity *= new Vector2(isOnFloor ? (1f - floorDrag) : (1f - airDrag) ,1f);
+        if (!isHooked)
+        {
+            rb2d.velocity *= new Vector2(isOnFloor ? (1f - floorDrag * Time.deltaTime) : (1f - airDrag * Time.deltaTime), 1f);
+        }
 
         if ((!jumpPressed || rb2d.velocity.y < 0f) && !isOnFloor)
             rb2d.velocity += new Vector2(0f, -fakeGravity * Time.deltaTime);

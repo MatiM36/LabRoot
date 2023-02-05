@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hurtbox: {fileID: 1991358226523771491}
   pickParticle: {fileID: 0}
+  pickSound: {fileID: 11400000, guid: 73e0beda664a91e44aec7b5bf851241d, type: 2}
 --- !u!1 &5000475287900976221
 GameObject:
   m_ObjectHideFlags: 0

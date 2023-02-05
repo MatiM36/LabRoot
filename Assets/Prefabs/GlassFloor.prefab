@@ -157,7 +157,7 @@ MonoBehaviour:
   breakAnimation: Glass_Break
   hurtbox: {fileID: 41226731650782196}
   timeBeforeBreak: 1
-  timeToRegenerate: 4
+  timeToRegenerate: 3
   breakParticles: {fileID: 0}
   breaking: 0
   regenerating: 0
@@ -211,7 +211,6 @@ MonoBehaviour:
   damageLayer:
     serializedVersion: 2
     m_Bits: 128
-  showDebug: 1
 --- !u!61 &41226731650782197
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateHair()
     {
-        bool pressedAttack = controlsEnabled && Input.GetButton("Fire2") || Input.GetButton("Fire3");
+        bool pressedAttack = controlsEnabled && (Input.GetButton("Fire2") || Input.GetButton("Fire3"));
 
 
         var hairStartPos = hairNodes[0].position;

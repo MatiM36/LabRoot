@@ -107,15 +107,15 @@ MonoBehaviour:
   m_text: "Mart\xEDn Moge - Game Design/Sound\nMayra Mansilla - Art/Animation\nMat\xEDas
     Mansilla - Programming"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: acda6594fd8f5dc40beeb0f512b38395, type: 2}
+  m_sharedMaterial: {fileID: -5480701557300899592, guid: acda6594fd8f5dc40beeb0f512b38395, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4280684312
+  m_fontColor: {r: 0.09494396, g: 0.059095763, b: 0.1509434, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -181,9 +181,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6515493529488119675}
     m_Modifications:
+    - target: {fileID: 3286284854355468449, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286284854355468449, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b94f7a82c22287d49b230f879dd138b4, type: 3}
+    - target: {fileID: 3286284854355468449, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4627893197820189595, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
       propertyPath: m_text
       value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627893197820189595, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_margin.x
+      value: 328.46555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627893197820189595, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: acda6594fd8f5dc40beeb0f512b38395, type: 2}
+    - target: {fileID: 4627893197820189595, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.21698111
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627893197820189595, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.056292273
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627893197820189595, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.10839275
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627893197820189595, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5480701557300899592, guid: acda6594fd8f5dc40beeb0f512b38395, type: 2}
+    - target: {fileID: 4627893197820189595, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281798172
       objectReference: {fileID: 0}
     - target: {fileID: 6812360750225474562, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
       propertyPath: m_Name
@@ -216,6 +256,14 @@ PrefabInstance:
     - target: {fileID: 8295868704266968534, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295868704266968534, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 501.6264
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295868704266968534, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 119.5471
       objectReference: {fileID: 0}
     - target: {fileID: 8295868704266968534, guid: 1b175e1c631eda64296c63b48e8e5fce, type: 3}
       propertyPath: m_LocalPosition.x

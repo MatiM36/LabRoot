@@ -504,8 +504,8 @@ MonoBehaviour:
   flipFacing: 0
   maxSpeed: 6
   accel: 80
-  floorDrag: 0.03
-  airDrag: 0.01
+  floorDrag: 7.5
+  airDrag: 2.5
   deadzoneValue: 0.1
   lastInputDuration: 0.2
   floorPoint: {fileID: 3823973106795024308}

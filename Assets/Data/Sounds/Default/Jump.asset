@@ -23,4 +23,4 @@ MonoBehaviour:
   volRange: {x: 1, y: 1}
   pitch: 1
   pitchRandomBetweenRanges: 1
-  pitchRange: {x: 0.5, y: 1.5}
+  pitchRange: {x: 1, y: 1.3}

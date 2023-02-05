@@ -1,3 +1,4 @@
+using Mati36.Vinyl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,9 @@ public class Bullet : MonoBehaviour
 
     public Hurtbox hurtbox;
 
+    public VinylAsset destroySound;
+    public ParticleSystem destroyParticles;
+
     public event Action<Bullet> OnBulletDestroyed;
 
     private float currentLife = 0f;
@@ -23,6 +27,9 @@ public class Bullet : MonoBehaviour
     private void DestroyBullet()
     {
         OnBulletDestroyed?.Invoke(this);
+        destroySound?.PlayAt(transform.position);
+        if (destroyParticles != null)
+            Instantiate(destroyParticles, transform.position, Quaternion.identity, null);
         Destroy(gameObject);
     }
 

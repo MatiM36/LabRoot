@@ -1,3 +1,4 @@
+using Mati36.Vinyl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ public class CollectableItem : MonoBehaviour, IReseteable
 {
     public Hurtbox hurtbox;
     public ParticleSystem pickParticle;
+    public VinylAsset pickSound;
 
     private void Awake()
     {
@@ -32,6 +34,7 @@ public class CollectableItem : MonoBehaviour, IReseteable
     {
         if(pickParticle != null)
             Instantiate(pickParticle, transform.position, Quaternion.identity, null);
+        pickSound?.PlayAt(transform.position);
         gameObject.SetActive(false);
         LevelManager.Instance.OnCollectItem(this);
     }

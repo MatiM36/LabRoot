@@ -532,11 +532,11 @@ MonoBehaviour:
   collectibleLayer:
     serializedVersion: 2
     m_Bits: 1024
-  rotationAccel: 32
+  rotationAccel: 35
   rotationMaxSpeed: 15
   assistAngle: 45
-  rotationReleaseJumpForce: 17.25
-  rotationReleaseSideForce: 11.25
+  rotationReleaseJumpForce: 17.75
+  rotationReleaseSideForce: 11.75
   input: {x: 0, y: 0}
   normalizedInput: {x: 0, y: 0}
   lastInput: {x: 1, y: 0}

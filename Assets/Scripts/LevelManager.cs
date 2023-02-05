@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
     {
         VinylManager.FadeOutAll(0.5f);
         levelMusic?.Play();
+        
         yield return FadeInRoutine();
     }
 
@@ -60,6 +61,7 @@ public class LevelManager : MonoBehaviour
         player.transform.position = startPoint.position;
 
         cameraController.SetTarget(player);
+        cameraController.ForcePosition();
     }
 
     public void OnEnterCheckpoint(Checkpoint checkpoint)

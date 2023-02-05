@@ -33,5 +33,6 @@ public class CollectableItem : MonoBehaviour, IReseteable
         if(pickParticle != null)
             Instantiate(pickParticle, transform.position, Quaternion.identity, null);
         gameObject.SetActive(false);
+        LevelManager.Instance.OnCollectItem(this);
     }
 }

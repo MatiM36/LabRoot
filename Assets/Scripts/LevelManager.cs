@@ -25,6 +25,9 @@ public class LevelManager : MonoBehaviour
 
     public HashSet<IReseteable> reseteableObjects = new HashSet<IReseteable>();
 
+    public HashSet<CollectableItem> collectedItemsThisLife = new HashSet<CollectableItem>();
+    public HashSet<CollectableItem> collectedAndSavedItems = new HashSet<CollectableItem>();
+
     private void Awake()
     {
         if (Instance != null)
@@ -35,8 +38,8 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        VinylManager.StopAll();
-        levelMusic.Play();
+        VinylManager.FadeOutAll(0.5f);
+        levelMusic?.Play();
         yield return FadeInRoutine();
     }
 
@@ -59,6 +62,16 @@ public class LevelManager : MonoBehaviour
         cameraController.SetTarget(player);
     }
 
+    public void OnEnterCheckpoint(Checkpoint checkpoint)
+    {
+        startPoint = checkpoint.spawnPoint;
+        foreach (var item in collectedItemsThisLife)
+            collectedAndSavedItems.Add(item);
+    }
+    public void OnCollectItem(CollectableItem item)
+    {
+        collectedItemsThisLife.Add(item);
+    }
     private void OnPlayerDeath()
     {
         if (currentDeathRoutine != null) return;
@@ -80,6 +93,7 @@ public class LevelManager : MonoBehaviour
         cameraController.ForcePosition();
 
         ResetAllElements();
+
         yield return FadeInRoutine();
 
         player.EnableControls(true);
@@ -124,6 +138,10 @@ public class LevelManager : MonoBehaviour
     {
         foreach (var r in reseteableObjects)
             r.ResetObject();
+
+        collectedItemsThisLife.Clear();
+        foreach (var collectedItem in collectedAndSavedItems)
+            collectedItem.gameObject.SetActive(false);
     }
 
     public void UnregisterPlayer()

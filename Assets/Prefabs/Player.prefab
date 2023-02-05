@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 3823973106149598882}
   - component: {fileID: 3823973106149598881}
   - component: {fileID: 3823973106149598883}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,10 +529,10 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 264
-  rotationAccel: 30
+  rotationAccel: 32
   rotationMaxSpeed: 15
   assistAngle: 45
-  rotationReleaseJumpForce: 16.5
+  rotationReleaseJumpForce: 17.25
   rotationReleaseSideForce: 11.25
   input: {x: 0, y: 0}
   normalizedInput: {x: 0, y: 0}
@@ -754,3 +754,6 @@ MonoBehaviour:
   jumpAnimation: Jump
   fallAnimation: Fall
   hookAnimation: Hook
+  deathSound: {fileID: 11400000, guid: 9ad564e9b68af544e96e090c605cfffe, type: 2}
+  attackSound: {fileID: 11400000, guid: 3ef2fd44c25ec6a43b3e61c25b74ad9a, type: 2}
+  jumpSound: {fileID: 11400000, guid: 320b2d60889140845bb9aa7b033c9125, type: 2}

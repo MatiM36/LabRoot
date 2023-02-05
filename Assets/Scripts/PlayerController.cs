@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
 
     private float secondsFromLastInput;
 
+    public event Action OnPlayerJump, OnPlayerAttack;
 
     private void Start()
     {
@@ -214,6 +215,8 @@ public class PlayerController : MonoBehaviour
         if (closestHook != null)
             currentAttackDir = (closestHook.transform.position - startPos).normalized;
         currentAttackDistance = 0.5f;
+
+        OnPlayerAttack?.Invoke();
     }
 
     private void UpdateHairNodes(Vector3 startPos, Vector3 targetPos)
@@ -318,6 +321,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+        OnPlayerJump?.Invoke();
     }
 
     private void OnDamageReceived()

@@ -1,7 +1,9 @@
+using Mati36.Vinyl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public interface IReseteable { public void ResetObject(); }
@@ -12,11 +14,14 @@ public class LevelManager : MonoBehaviour
 
     public Transform startPoint;
     public CameraController cameraController;
+
     public Image fadeImage;
     public float fadeDuration = 0.5f;
+    public VinylAsset levelMusic;
     private PlayerController player;
 
     private Coroutine currentDeathRoutine = null;
+    private Coroutine currentLevelRoutine = null;
 
     public HashSet<IReseteable> reseteableObjects = new HashSet<IReseteable>();
 
@@ -26,6 +31,13 @@ public class LevelManager : MonoBehaviour
             Destroy(Instance);
 
         Instance = this;
+    }
+
+    private IEnumerator Start()
+    {
+        VinylManager.StopAll();
+        levelMusic.Play();
+        yield return FadeInRoutine();
     }
 
     public void RegisterLevelObject(IReseteable reseteable)
@@ -59,6 +71,24 @@ public class LevelManager : MonoBehaviour
         player.ShowPlayer(false);
         player.EnableControls(false);
 
+        yield return new WaitForSeconds(0.5f);
+
+        yield return FadeOutRoutine();
+
+        player.transform.position = startPoint.position;
+        player.ShowPlayer(true);
+        cameraController.ForcePosition();
+
+        ResetAllElements();
+        yield return FadeInRoutine();
+
+        player.EnableControls(true);
+
+        currentDeathRoutine = null;
+    }
+
+    private IEnumerator FadeOutRoutine()
+    {
         float t = 0f;
         var color = fadeImage.color;
         fadeImage.enabled = true;
@@ -72,12 +102,12 @@ public class LevelManager : MonoBehaviour
 
         color.a = t = 1f;
         fadeImage.color = color;
-
-        player.transform.position = startPoint.position;
-        player.ShowPlayer(true);
-
-        ResetAllElements();
-
+    }
+    private IEnumerator FadeInRoutine()
+    {
+        float t = 1f;
+        var color = fadeImage.color;
+        fadeImage.enabled = true;
         while (t > 0f)
         {
             t -= Time.deltaTime / fadeDuration;
@@ -88,10 +118,6 @@ public class LevelManager : MonoBehaviour
         color.a = t = 0f;
         fadeImage.color = color;
         fadeImage.enabled = false;
-
-        player.EnableControls(true);
-
-        currentDeathRoutine = null;
     }
 
     private void ResetAllElements()
@@ -107,5 +133,18 @@ public class LevelManager : MonoBehaviour
             player.hurtbox.OnDamageReceived -= OnPlayerDeath;
             player = null;
         }
+    }
+
+    public void GoToNextLevel(string levelName)
+    {
+        if (currentLevelRoutine != null) return;
+        currentLevelRoutine = StartCoroutine(NextLevelRoutine(levelName));
+    }
+
+    private IEnumerator NextLevelRoutine(string levelName)
+    {
+        player.EnableControls(false);
+        yield return FadeOutRoutine();
+        SceneManager.LoadScene(levelName);
     }
 }

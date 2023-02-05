@@ -11,7 +11,7 @@ public class Hurtbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(((1 << collision.gameObject.layer) & damageLayer) != 0)
+        if (((1 << collision.gameObject.layer) & damageLayer) != 0)
         {
             OnDamageReceived?.Invoke();
         }

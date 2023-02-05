@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b1756339a637c479bd5907b065cbe2, type: 3}
+  m_Name: Jump
+  m_EditorClassIdentifier: 
+  category: {fileID: 11400000, guid: 2020db578b7d0484cb382842c89a1fd3, type: 2}
+  randomClips:
+  - clip: {fileID: 8300000, guid: 9eeff5a4b552fad4bb207074e6ee956d, type: 3}
+    chance: 1
+  avoidClipRepeat: 1
+  loop: 0
+  vol: 1
+  volRandomBetweenRanges: 0
+  volRange: {x: 1, y: 1}
+  pitch: 1
+  pitchRandomBetweenRanges: 1
+  pitchRange: {x: 0.5, y: 1.5}

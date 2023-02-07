@@ -27,7 +27,9 @@ public class PlayerController : MonoBehaviour
     public float floorPointRadius = 0.1f;
     public float jumpForce = 5f;
     public float jumpCd = 0.5f;
+    public float maxFallSpeed = 10f;
     public float fakeGravity = 10f;
+    public float coyoteTime = 0.5f;
 
     [Header("Hair")]
     public Transform[] hairNodes;
@@ -70,13 +72,17 @@ public class PlayerController : MonoBehaviour
     private bool isUsingHair = false;
     private float hairRecoveryTimer;
     private float hairWaitTimer;
+    private float timeSinceFloor;
 
     private float secondsFromLastInput;
+
+    private Vector2 initialHairPosition;
 
     public event Action OnPlayerJump, OnPlayerAttack;
 
     private void Start()
     {
+        initialHairPosition = hairNodes[0].localPosition;
         hurtbox.OnDamageReceived += OnDamageReceived;
         LevelManager.Instance.RegisterPlayer(this);
     }
@@ -265,7 +271,11 @@ public class PlayerController : MonoBehaviour
 
     private void CheckFloor()
     {
+        timeSinceFloor += Time.deltaTime;
+
         isOnFloor = Physics2D.OverlapCircleNonAlloc(floorPoint.position, floorPointRadius,overlapResult, floorLayer) > 0;
+        if (isOnFloor)
+            timeSinceFloor = 0f;
     }
 
     private void HandleMovement()
@@ -313,9 +323,12 @@ public class PlayerController : MonoBehaviour
         if ((!jumpPressed || rb2d.velocity.y < 0f) && !isOnFloor)
             rb2d.velocity += new Vector2(0f, -fakeGravity * Time.deltaTime);
 
+        if (rb2d.velocity.y < -maxFallSpeed)
+            rb2d.velocity = new Vector2(rb2d.velocity.x, -maxFallSpeed);
+
         if (jumpTimer <= 0f)
         {
-            if (isOnFloor && jumpPressed && hasReleasedJump)
+            if ((isOnFloor || timeSinceFloor < coyoteTime) && jumpPressed && hasReleasedJump)
             {
                 Jump();
                 jumpTimer = jumpCd;
@@ -336,7 +349,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDamageReceived()
     {
-        
+        hairNodes[0].localPosition = initialHairPosition;
     }
 
     public void ShowPlayer(bool value)

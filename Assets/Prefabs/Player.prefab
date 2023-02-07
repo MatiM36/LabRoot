@@ -505,7 +505,7 @@ MonoBehaviour:
   maxSpeed: 6
   accel: 80
   floorDrag: 7.5
-  airDrag: 2.9
+  airDrag: 2.7
   deadzoneValue: 0.1
   lastInputDuration: 0.2
   floorPoint: {fileID: 3823973106795024308}
@@ -515,7 +515,9 @@ MonoBehaviour:
   floorPointRadius: 0.1
   jumpForce: 15
   jumpCd: 0.5
+  maxFallSpeed: 20
   fakeGravity: 40
+  coyoteTime: 0.1
   hairNodes:
   - {fileID: 2085728223}
   - {fileID: 1182891840}
